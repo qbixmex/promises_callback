@@ -1,5 +1,5 @@
 {
-  "name": "webpack-training",
+  "name": "promises-async",
   "version": "1.0.0",
   "description": "Todo App with Javascript",
   "main": "index.js",
@@ -27,5 +27,8 @@
     "webpack": "^5.67.0",
     "webpack-cli": "^4.9.2",
     "webpack-dev-server": "^4.7.3"
+  },
+  "dependencies": {
+    "bootstrap": "^5.1.3"
   }
 }
