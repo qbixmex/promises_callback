@@ -6,7 +6,7 @@ import heroes from "./heroes";
  * @param {string} id examples: "captain", "iron", "spider"
  * @returns {Promise<import("./heroes").Hero>} Hero Object
  */
-const searchHero = ( id ) => {
+export const searchHero = ( id ) => {
   const hero = heroes[id];
 
   return new Promise( ( resolve, reject ) => {
@@ -16,8 +16,6 @@ const searchHero = ( id ) => {
       } else {
         reject(`Hero does not exist with id: "${ id }"`);
       }
-    }, 1500);
+    }, 500);
   });
 };
-
-export default searchHero;

@@ -7,7 +7,7 @@ import heroes from "./heroes";
  * @param {(error: string|null, hero: import("./heroes").Hero|null) => void} callback
  * @returns {void}
  */
-const searchHero = ( id, callback ) => {
+export const searchHero = ( id, callback ) => {
     /** @type {import("./heroes").Hero} */
     const hero = heroes[id];
 
