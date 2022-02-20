@@ -9,11 +9,8 @@ import heroes from "./heroes";
 const searchHero = ( id ) => {
   return new Promise( ( resolve, reject ) => {
     const hero = heroes[id];
-    if ( hero ) {
-      resolve( hero );
-    } else {
-      reject(`Hero does not exist with id: "${ id }"`);
-    }
+    if ( hero ) setTimeout(() => resolve( hero ), 1000);
+    else reject(`Hero does not exist with id: "${ id }"`);
   });
 };
 
