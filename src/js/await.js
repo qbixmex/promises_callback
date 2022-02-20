@@ -17,3 +17,22 @@ export const getHeroesArray = async () => {
   // Shorthand
   return await Promise.all( heroesIds.map( id => searchHero( id ) ) );
 };
+
+/**
+ * Get hero by ID from Heroes Object
+ * @param {string} id example: "captain", "spider", "iron"
+ * @return {Promise<void|import("./heroes").Hero>}
+ */
+export const getHeroAwait = async ( id ) => {
+  try {
+    const hero = await searchHeroAsync( id );
+    return hero;
+  } catch( error ) {
+    console.warn( error );
+    return {
+      id: 0,
+      name: "empty",
+      power: "empty",
+    };
+  }
+};

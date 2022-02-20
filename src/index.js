@@ -1,12 +1,12 @@
 // @ts-check
-import { getHeroesArray } from "./js/await";
+import { getHeroAwait } from "./js/await";
 import "./sass/styles.scss";
 
 console.time("await");
 
-getHeroesArray()
-    .then( heroes => {
-        console.table( heroes );
+getHeroAwait("spider2")
+    .then( hero => {
+        console.table( hero );
         console.timeEnd("await");
     })
     .catch( console.error );

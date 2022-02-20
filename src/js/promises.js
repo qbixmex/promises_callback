@@ -23,8 +23,11 @@ const searchHero = ( id ) => {
 
   const hero = heroes[id];
 
-  if ( hero ) return hero;
-  else throw `Hero does not exist with id: "${ id }"`;
+  if ( hero ) {
+    return hero;
+  } else {
+    throw `Hero does not exist with id: "${ id }"`;
+  }
 
 };
 
