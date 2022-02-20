@@ -8,7 +8,6 @@
  * @property {string} power - The power name
  */
 
-
 /**
  * Heroes Objects
  * @type {{ captain: Hero, iron: Hero, spider: Hero }}
@@ -34,12 +33,16 @@ const heroes = {
 /**
  * Search hero by id
  * @param {string} id examples: "captain", "iron", "spider"
- * @param {(hero: Hero) => void} callback
+ * @param {(error: string|null, hero: Hero|null) => void} callback
  * @returns {void}
  */
 export const searchHero = ( id, callback ) => {
     /** @type {Hero} */
     const hero = heroes[id];
 
-    callback( hero );
-}
+    if ( hero ) {
+        callback( null, hero )
+    } else {
+        callback( `Hero does not exist with id: "${ id }"`, null );
+    }
+};

@@ -3,8 +3,15 @@
 import { searchHero } from "./js/callbacks";
 import "./sass/styles.scss";
 
-searchHero("captain", ( hero ) => console.table( hero ));
-searchHero("iron", ( hero ) => console.table( hero ));
-searchHero("spider", ( hero ) => console.table( hero ));
+const search = "captain";
+
+searchHero(search, ( error, hero ) => {
+    if ( error ) {
+        console.error( error );
+    } else {
+        console.table( hero );
+    }
+});
+
 
 console.log( "End Program" );
