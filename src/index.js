@@ -1,11 +1,11 @@
 // @ts-check
-import { slowPromise, mediumPromise, fastPromise } from "./js/promises";
+import { searchHero, searchHeroAsync } from "./js/promises";
 import "./sass/styles.scss";
 
-// slowPromise.then( console.log );
-// mediumPromise.then( console.log );
-// fastPromise.then( console.log );
+// searchHero("spider")
+//     .then( hero => console.log(`Sending "${ hero.name }" to a mission`))
+//     .catch( console.error );
 
-Promise.race([ slowPromise, mediumPromise, fastPromise ])
-    .then( console.log )
+searchHeroAsync("iron")
+    .then( hero => console.log(`Sending "${ hero?.name }" to a mission`))
     .catch( console.error );

@@ -7,17 +7,28 @@ import heroes from "./heroes";
  * @returns {Promise<import("./heroes").Hero>} Hero Object
  */
 const searchHero = ( id ) => {
+  return new Promise( ( resolve, reject ) => {
+    const hero = heroes[id];
+    if ( hero ) {
+      resolve( hero );
+    } else {
+      reject(`Hero does not exist with id: "${ id }"`);
+    }
+  });
+};
+
+/**
+ * Search hero by string id with Async.
+ * @param {string} id examples: "captain", "iron", "spider"
+ * @returns {Promise<import("./heroes").Hero|void>} Hero Object
+ */
+ const searchHeroAsync = async( id ) => {
+
   const hero = heroes[id];
 
-  return new Promise( ( resolve, reject ) => {
-    setTimeout(() => {
-      if ( hero ) {
-        resolve( hero );
-      } else {
-        reject(`Hero does not exist with id: "${ id }"`);
-      }
-    }, 500);
-  });
+  if ( hero ) return hero;
+  else throw `Hero does not exist with id: "${ id }"`;
+
 };
 
 /**
@@ -41,11 +52,12 @@ const mediumPromise = new Promise( ( resolve, reject ) => {
  * @type {Promise<string>}
  */
 const fastPromise = new Promise( ( resolve, reject ) => {
-  setTimeout( () => { reject("Fast Promise") }, 1000 );
+  setTimeout( () => { resolve("Fast Promise") }, 1000 );
 });
 
 export {
   searchHero,
+  searchHeroAsync,
   slowPromise,
   mediumPromise,
   fastPromise,
