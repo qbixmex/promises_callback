@@ -1,11 +1,7 @@
 // @ts-check
-import { searchHero, searchHeroAsync } from "./js/promises";
+import { getHeroesArray } from "./js/await";
 import "./sass/styles.scss";
 
-// searchHero("spider")
-//     .then( hero => console.log(`Sending "${ hero.name }" to a mission`))
-//     .catch( console.error );
-
-searchHeroAsync("iron")
-    .then( hero => console.log(`Sending "${ hero?.name }" to a mission`))
+getHeroesArray()
+    .then( console.table )
     .catch( console.error );
