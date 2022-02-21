@@ -1,4 +1,3 @@
-// @ts-check
 import heroes from "./heroes";
 
 /**
